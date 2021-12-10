@@ -1,4 +1,3 @@
-
 #include "libft.h"
 
 void sh()
@@ -6,7 +5,6 @@ void sh()
     system("sh header.sh");
     color(0);
 }
-
 
 void info()
 {
@@ -20,27 +18,24 @@ void info()
     color(2);
     printf("press any button ...");
     getchar();
-    system("clear");
+    system("clear"); // -> ջնջում է console_ի պարունակությունը։
 }
 
 void color (int flag)
 {
 	if (flag == 0)
-		printf("\033[0m"); //reset
+		printf("\033[0m");     //reset
 	else if (flag == 2)
-		printf("\033[1;31m"); //red
+		printf("\033[1;31m");  //red
 	else if (flag == 1)
 		printf("\033[0;32m");
-	else if (flag == 3) //green
+	else if (flag == 3)               //green
 		printf("\033[0;32m");
-
 }
-
 
 void print(MX *mat)
 {
     system("clear");
-
     sh();
     for (int i =  0; i < mat->n; ++i)
     {
@@ -48,27 +43,19 @@ void print(MX *mat)
             color(2);
         else
             color(3);
-
-
         for (int j = 0; j < mat->m * 2; ++j)
         {
-            if (mat->m == j)
-            {
+            if ( j >= mat->m)
                 color(2);
-                printf("   ");
-            }
-            if(mat->arr[i][j])
-                printf(" %4d ", mat->arr[i][j]);
-            else
-                printf(" [?]  ");
+			if(j == mat->m)
+				printf("   ");
+			if( mat->arr[i][j])
+				printf("%d ", mat->arr[i][j]);
+			else
+				printf("  ");
         }
         printf("\n");
         color(1);
     }
-    usleep(170000);
+    usleep(170000); //-> Դանդաղեցնում է code_ի աշխատանքը։
 }
-
-
-
-
-

@@ -1,27 +1,26 @@
-#ifndef __LIBFT__H__
-#define __LIBFT__H__
+#ifndef LIBFT_H
+# define LIBFT_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdio.h>  // —> printf()
+# include <stdlib.h> // —> malloc()
+# include <unistd.h> // —> sleep() || usleep()
 
-typedef struct  cube
-{
-    int n;
-    int m;
-    int **arr;
-} MX;
+typedef struct	cube //}
+{					 //} —> Հայտարարում է MX տիպի struct որը պարունակում է՝
+	int n;           //} —> n տողերի քանակ,
+	int m;           //} —> m սյուների քանակ,
+	int	**arr;       //} —> arr ցուցիչի ցուցիչ։
+}	MX;              //}
 
-void sh();
-void color (int flag);
-void print(MX *mat);
-void info();
-
-void ex22();
-void ft_free(MX * mat);
-void change(MX * mat);
-void create_arr(MX *mat);
-void push_random(MX * mat);
-void N_and_M(MX * mat);
-int not_sorted(MX * mat, int n);
+void	sh();                           //—> Տպում է header.sh file_ի պարունակությունը և գույնը reset է անում:
+void	color (int flag);				//—> Փոխում է console_ի գույնը ըստ flag_ի։
+void	print(MX *mat);                 //—> Տպում է matrix_ը։
+void	info();                         //—> Տպում է խնդրի պահանջը։
+void	ex22(); 					    //—> 22 համարի վարժության ֆունկցիա։
+void	ft_free(MX *mat);               //—> Մաքրում է դինամիկ հիշողությունը։
+void	change(MX *mat);                //—> Անիմացիայի համար պատասխանատու ֆունկցիա։
+void	create_arr(MX *mat);            //—> Ստեղծում է matrix:
+void	push_random(MX *mat);           //—> Ռանդոմ տարբերակով էլեմենտներ է ավելացնում matrix_ի մեջ:
+void	N_and_M(MX *mat);               //—> Ստուգում է N_ի և M_ի ճիշտ լինելու պայմանը  [N > 1; M > 2];
+int		not_sorted(MX *mat, int n);     //—> Եթե տողը սորտավորված է վերադարցնում է 1 հակառակ դեպքում 0:
 #endif

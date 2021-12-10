@@ -1,5 +1,6 @@
 #include "libft.h"
 
+
 int not_sorted(MX * mat, int n)
 {
     int min_max = 1;
@@ -24,7 +25,6 @@ void N_and_M(MX * mat)
     char str[20] = "-1";
     mat->n = -1;
     mat->m = -1;
-
     while (mat->n <= 0)
     {
         printf("input number N: ");
@@ -57,17 +57,13 @@ void create_arr(MX *mat)
         if (!(mat->arr[i] = (int*)malloc( sizeof(int) *  (mat->m * 2) )))
             return;
 }
+
 void push_random(MX * mat)
 {
     for(int i = 0; i < mat->n; ++i)
-    {
         for (int j = 0; j < mat->m; ++j)
-        {
-            mat->arr[i][j] = rand() % 5000;
-        }
-    }
+            mat->arr[i][j] = rand() % 8  + 1;
 }
-
 
 void change(MX * mat)
 {
@@ -113,6 +109,7 @@ void change(MX * mat)
     }
 }
 
+
 void ft_free(MX * mat)
 {
     for (int i = 0; i < mat->n; ++i)
@@ -120,6 +117,8 @@ void ft_free(MX * mat)
     free(mat->arr);
     free(mat);
 }
+
+
 void ex22()
 {
     info();
@@ -132,3 +131,4 @@ void ex22()
     change(mat);
     ft_free(mat);
 }
+
